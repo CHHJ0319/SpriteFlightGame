@@ -49,16 +49,14 @@ public class PlayerController : MonoBehaviour
         UpdateScore();
         MovePlayer();
 
-
-        //나중에 불꽃 추가
-        //if (Mouse.current.leftButton.wasPressedThisFrame)
-        //{
-        //    boosterFlame.SetActive(true);
-        //}
-        //else if (Mouse.current.leftButton.wasReleasedThisFrame)
-        //{
-        //    boosterFlame.SetActive(false);
-        //}
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            boosterFlame.SetActive(true);
+        }
+        else if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            boosterFlame.SetActive(false);
+        }
 
 
         //for mobile
