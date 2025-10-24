@@ -48,26 +48,6 @@ public class PlayerController : MonoBehaviour
     {
         UpdateScore();
         MovePlayer();
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            boosterFlame.SetActive(true);
-        }
-        else if (Mouse.current.leftButton.wasReleasedThisFrame)
-        {
-            boosterFlame.SetActive(false);
-        }
-
-
-        //for mobile
-        //if (moveForward.WasPressedThisFrame())
-        //{
-        //    boosterFlame.SetActive(true);
-        //}
-        //else if (moveForward.WasReleasedThisFrame())
-        //{
-        //    boosterFlame.SetActive(false);
-        //}
     }
 
     void UpdateScore()
@@ -83,7 +63,6 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
             Vector2 direction = (mousePos - transform.position).normalized;
-            transform.up = direction;
             rb.AddForce(direction * thrustForce);
 
             if (rb.linearVelocity.magnitude > maxSpeed)
@@ -114,6 +93,29 @@ public class PlayerController : MonoBehaviour
 
         restartButton.style.display = DisplayStyle.Flex;
         borderParent.SetActive(false);
+    }
+
+    void ActivateBoosterFlame()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            boosterFlame.SetActive(true);
+        }
+        else if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            boosterFlame.SetActive(false);
+        }
+
+
+        //for mobile
+        //if (moveForward.WasPressedThisFrame())
+        //{
+        //    boosterFlame.SetActive(true);
+        //}
+        //else if (moveForward.WasReleasedThisFrame())
+        //{
+        //    boosterFlame.SetActive(false);
+        //}
     }
 
     void ReloadScene()
